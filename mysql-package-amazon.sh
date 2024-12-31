@@ -5,12 +5,12 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-yum list installed | grep mysql
+yum list installed | grep mysql-server
 
 if [ $? -ne 0 ]; then 
     echo "mysql is not installed, installing"
     
-    yum install mqsql -y
+    yum install mqsql-server -y
     if [ $? -ne 0 ]; then
         echo "installing mysql failed"
         exit 1
