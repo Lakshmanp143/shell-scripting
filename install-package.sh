@@ -6,7 +6,7 @@ if [ USERID -ne 0 ]; then
     exit 1
 fi
 
-dnf install mysql-server -y
+dnf install git -y
 
 if [ $? -ne 0 ]; then
     echo "program is failure"
