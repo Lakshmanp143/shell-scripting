@@ -8,7 +8,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 # Check if MySQL is installed
-dnf list installed | grep -q mysql
+dnf list installed | grep -q mariadb10
 if [ $? -ne 0 ]; then
     echo "MySQL is not installed, proceeding with installation."
 
@@ -16,7 +16,7 @@ if [ $? -ne 0 ]; then
     dnf update -y
 
     # Install MySQL
-    dnf install mysql-server -y
+    sudo dnf install mariadb105 -y
 
     # Check if the installation was successful
     if [ $? -ne 0 ]; then
