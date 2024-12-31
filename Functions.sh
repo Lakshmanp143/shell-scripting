@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Laxman
-DATE=$(date)
+DATE=$(date +%F)
 LOG="Mysql-installing-${DATE}"
 USERID=$(id -u)
 
