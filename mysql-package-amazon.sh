@@ -9,8 +9,7 @@ yum list installed | grep mysql
 
 if [ $? -ne 0 ]; then 
     echo "mysql is not installed, installing"
-    exit 0
-
+    
     yum install mqsql -y
     if [ $? -ne 0 ]; then
         echo "installing mysql failed"
