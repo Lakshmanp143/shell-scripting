@@ -9,22 +9,22 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-dnf list installed | grep mysql &>>$LOG
+dnf list installed | grep mysql-server &>>$LOG
     if [ $? -ne 0 ]; then
-        echo "Mqsql not installed, installing wait"
-        dnf install mysql -y    &>>$LOG
+        echo "mysql-server not installed, installing wait"
+        dnf install mysql-server -y    &>>$LOG
         if [ $? -ne 0 ]; then
             echo "MySQL installation failed."
             exit 1
         else
-            echo "Installing mysql is succeeded"
-            systemctl start mysql   &>>$LOG
-            systemctl enable mysql  &>>$LOG
-            systemctl status mysql  &>>$LOG
+            echo "Installing mysql-server is succeeded"
+            systemctl start mysqld   &>>$LOG
+            systemctl enable mysqld  &>>$LOG
+            systemctl status mysqld  &>>$LOG
             if [ $? -ne 0 ]; then 
-                echo "Failed to start and enable MySQL."
+                echo "Failed to start and enable mysql-server."
             else    
-                echo "mysql is running fine"
+                echo "mysql-server is running fine"
             fi
         fi
     else
