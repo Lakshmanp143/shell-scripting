@@ -6,9 +6,9 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-dnf list installed | grep mysql-server
+dnf list installed | grep nginx
 if [ $? -ne 0 ]; then
-    dnf install mysql-server -y
+    dnf install nginx -y
 
     if [ $? -ne 0 ]; then
         echo "program is failure"
