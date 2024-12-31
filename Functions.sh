@@ -14,7 +14,7 @@ dnf list installed | grep mysql &>>$LOG
         echo "Mqsql not installed, installing wait"
         dnf install mysql -y    &>>$LOG
         if [ $? -ne 0 ]; then
-            echo "MySQL installation failed. Check the log at $LOG for details."
+            echo "MySQL installation failed."
             exit 1
         else
             echo "Installing mysql is succeeded"
@@ -22,7 +22,7 @@ dnf list installed | grep mysql &>>$LOG
             systemctl enable mysql  &>>$LOG
             systemctl status mysql  &>>$LOG
             if [ $? -ne 0 ]; then 
-                echo "Failed to start and enable MySQL. Check the log at $LOG for details."
+                echo "Failed to start and enable MySQL."
             else    
                 echo "mysql is running fine"
             fi
