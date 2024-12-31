@@ -6,13 +6,11 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-dnf list installed | grep mysql 
-if [ $? -ne 0 ] 
-then
-    dnf install mysql -y
+dnf list installed | grep mysql-server
+if [ $? -ne 0 ]; then
+    dnf install mysql-server -y
 
-    if [ $? -ne 0 ] 
-    then
+    if [ $? -ne 0 ]; then
         echo "program is failure"
         exit 1
     else
