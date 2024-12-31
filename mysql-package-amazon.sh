@@ -1,23 +1,41 @@
 #!/bin/bash
+
+# Check if the script is run as root
 USERID=$(id -u)
-if [ $USERID -ne 0 ]; then 
-    echo "you need to be root user to execute this script"
+if [ $USERID -ne 0 ]; then
+    echo "You need to be the root user to execute this script."
     exit 1
 fi
 
-yum list installed | grep mysql-server
+# Check if MySQL is installed
+dnf list installed | grep -q mysql
+if [ $? -ne 0 ]; then
+    echo "MySQL is not installed, proceeding with installation."
 
-if [ $? -ne 0 ]; then 
-    echo "mysql is not installed, installing"
-    
-    yum install mqsql-server -y
+    # Update the package cache
+    dnf update -y
+
+    # Install MySQL
+    dnf install mysql mysql-server -y
+
+    # Check if the installation was successful
     if [ $? -ne 0 ]; then
-        echo "installing mysql failed"
+        echo "MySQL installation failed. Exiting."
         exit 1
     else
-        echo "mysql install success"
-    fi
+        echo "MySQL installation succeeded."
 
+        # Enable and start the MySQL service
+        systemctl enable mysqld
+        systemctl start mysqld
+
+        if [ $? -ne 0 ]; then
+            echo "Failed to start MySQL service. Please check manually."
+            exit 1
+        else
+            echo "MySQL service is up and running."
+        fi
+    fi
 else
-    echo "mysql already installed"
+    echo "MySQL is already installed."
 fi
