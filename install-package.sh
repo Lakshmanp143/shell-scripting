@@ -8,6 +8,7 @@ fi
 
 dnf list installed | grep nginx
 if [ $? -ne 0 ]; then
+    echo "mysql is not installed, installing"
     dnf install nginx -y
 
     if [ $? -ne 0 ]; then
