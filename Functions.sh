@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Laxman
 DATE=$(date +%F)
-LOG="Mysql-installing-${DATE}"
+LOG="Mysql-installing-${DATE}.log"
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]; then
@@ -12,17 +12,17 @@ fi
 dnf list installed | grep mysql &>>$LOG
     if [ $? -ne 0 ]; then
         echo "Mqsql not installed, installing wait"
-        dnf install mysql -y    
+        dnf install mysql -y    &>>$LOG
         if [ $? -ne 0 ]; then
-            echo "Installing mysql is failure, Ohhh!!!"
+            echo "MySQL installation failed. Check the log at $LOG for details."
             exit 1
         else
-            echo "Installing mysql is success"
-            systemctl start mysql
-            systemctl enable mysql
-            systemctl status mysql
+            echo "Installing mysql is succeeded"
+            systemctl start mysql   &>>$LOG
+            systemctl enable mysql  &>>$LOG
+            systemctl status mysql  &>>$LOG
             if [ $? -ne 0 ]; then 
-                echo "mysql enabling, starting and status is failure"
+                echo "Failed to start and enable MySQL. Check the log at $LOG for details."
             else    
                 echo "mysql is running fine"
             fi
