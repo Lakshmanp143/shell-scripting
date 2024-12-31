@@ -18,9 +18,9 @@ dnf list installed | grep mysql &>>$LOG
             exit 1
         else
             echo "Installing mysql is success"
-            systemctl start mysqld
-            systemctl enable mysqld
-            systemctl status mysqld
+            systemctl start mysql
+            systemctl enable mysql
+            systemctl status mysql
             if [ $? -ne 0 ]; then 
                 echo "mysql enabling, starting and status is failure"
             else    
