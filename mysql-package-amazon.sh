@@ -16,7 +16,7 @@ if [ $? -ne 0 ]; then
     dnf update -y
 
     # Install MySQL
-    dnf install mysql mysql-server -y
+    dnf install mysql-server -y
 
     # Check if the installation was successful
     if [ $? -ne 0 ]; then
