@@ -2,21 +2,22 @@
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
-N="\e[34m"
-USERID=(id -u)
-TIMESTAMP=$(date +%F)
-FOLDER_NAME="var/log/shellscript-logs"
-FILE_NAME=$(echo $0 | cut -d "." -f1)
-LOG_FILE_NAME="$FOLDER_NAME/$FILE_NAME-$TIMESTAMP.log"
+N="\e[0m"
+USERID=$(id -u)
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
+LOGS_FOLDER="var/log/shellscript-logs"
+LOG_FILE=$(echo $0 | cut -d "." -f1 )
+LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo "$2.....$R FAILURE $N"
+        echo -e "$2.....$R FAILURE $N"
         exit 1
     else 
-        echo "$2.....$G success $N"
+        echo -e "$2.....$G success $N"
     fi
 }
+
 echo " Script started executing at: $TIMESTAMP"  &>>$LOG_FILE_NAME
 
 if [ USERID -NE 0 ]; then
@@ -31,7 +32,7 @@ do
         dnf install $package -y  &>>$LOG_FILE_NAME
         VALIDATE $? "Installing $package"
     else
-        "$package already.... $Y installed" 
+        echo -e "$package already.... $Y installed" 
     fi
 done
 
