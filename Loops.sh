@@ -20,7 +20,7 @@ VALIDATE(){
 
 echo " Script started executing at: $TIMESTAMP"  &>>$LOG_FILE_NAME
 
-if [ USERID -NE 0 ]; then
+if [ USERID -ne 0 ]; then
     echo " You need to be root user to execute thi sscript"
     exit 1
 fi
