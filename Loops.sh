@@ -5,7 +5,7 @@ Y="\e[33m"
 N="\e[0m"
 USERID=$(id -u)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
-LOGS_FOLDER="var/log/shellscript-logs"
+LOGS_FOLDER="/var/log/shellscript-logs"
 LOG_FILE=$(echo $0 | cut -d "." -f1 )
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
