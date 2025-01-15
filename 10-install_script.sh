@@ -8,7 +8,7 @@ then
     exit 1
 fi
 
-dnf install list installed | grep mysql
+dnf list installed | grep mysql
 if [ $? -ne 0 ]
 then
     echo "Mysql not intalled, installing ....wait!!!!"
@@ -24,7 +24,7 @@ else
     echo "mysql is already installed ...SKIPPING"
 fi
 
-dnf install list installed | grep git
+dnf list installed | grep git
 if [ $? -ne 0 ]
 then
     echo "git is not intalled, installing ....wait!!!!"
