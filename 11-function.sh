@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USERID=$(id -u)
-if [ $? -ne 0 ]
+if [ $USERID -ne 0 ]
 then    
     echo "ERROR:You need to be root user to execute this script"
     exit 1

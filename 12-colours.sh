@@ -7,11 +7,12 @@ N="\e[0m"
 B="\e[34m"
 
 USERID=$(id -u)
-if [ $? -ne 0 ]
+if [ $USERID -ne 0 ]
 then    
     echo -e "ERROR:: $B You need to be root user to execute this script $N "
     exit 1
 fi
+
 VALIDATE(){
 if [ $1 -ne 0 ]
 then
