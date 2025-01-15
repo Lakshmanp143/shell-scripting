@@ -1,11 +1,11 @@
 #!/bin/bash
 
-all variables passed:$@
-number of variables passed:$#
-present script name:$0
-process id od present script:$$
+echo "all variables passed:$@"
+echo "number of variables passed:$#"
+echo "present script name:$0"
+echo "process id od present script:$$""
 ls -ltra
-process id of previous command:$!
-present working directory:$PWD 
-home directory of current user:$HOME 
-which user execute this script:$USER 
+echo "process id of previous command:$!"
+echo "present working directory:$PWD"
+echo "home directory of current user:$HOME" 
+echo "which user execute this script:$USER" 
