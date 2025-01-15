@@ -42,3 +42,13 @@ then
 else
     echo -e "Git is already $Y installed  $N "
 fi 
+
+dnf list installed zip
+if [ $? -ne 0 ]
+then 
+    echo -e " $B Git is not installed, installing ...wait!!!! $N "
+    dnf install zip -y
+    VALIDATE $? "zip installing"
+else
+    echo -e "zip is already $Y installed  $N "
+fi 
