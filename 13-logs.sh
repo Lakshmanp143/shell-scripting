@@ -19,11 +19,7 @@ then
     exit 1
 fi
 
-
-
 echo "Script started executing at:: $TIMESTAMP" &>>$LOGS_FILE_NAME
-
-
 
 VALIDATE(){
 
