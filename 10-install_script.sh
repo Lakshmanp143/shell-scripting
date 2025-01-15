@@ -16,6 +16,7 @@ then
     if [ $? -ne 0 ]
     then
         echo "mysql installing FAILURE"
+        exit 1
     else
         echo "mysql installing SUCCESS"
     fi
