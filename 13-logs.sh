@@ -12,16 +12,16 @@ LOGS_FOLDER="/var/log/shell-script-logs"
 LOGS_FILE=$(echo $0 | cut -d "." -f1 )
 LOGS_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log"
 
-CHECK_ROOT(){
+
 if [ $USERID -ne 0 ]
 then    
     echo -e "ERROR:: $B You need to be root user to execute this script $N "
     exit 1
 fi
-}
-mkdir -p var/log/shell-script-logs
+
+
+
 echo "Script started executing at:: $TIMESTAMP" &>>$LOGS_FILE_NAME
-CHECK_ROOT
 
 
 
