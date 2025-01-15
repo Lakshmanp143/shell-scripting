@@ -5,8 +5,8 @@
 
 DATE=$(date +%Y-%m-%d-%H-%M-%S)
 MOVIES=("bahubali" "daaku" "druva")
-NUM1=5
-NUM2=6
+NUM1=$1
+NUM2=$2
 SUM=$(($NUM1+$NUM2))
 
 echo "Script started executing at:: $DATE"
