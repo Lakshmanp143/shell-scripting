@@ -3,7 +3,7 @@
 USERID=$(id -u)
 if [ $? -ne 0 ]
 then    
-    echo "ERROR:You need to ne root user to execute this script"
+    echo "ERROR:You need to be root user to execute this script"
     exit 1
 fi
 VALIDATE(){
