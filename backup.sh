@@ -62,6 +62,7 @@ then
     else
         echo -e "$ERROR:: $N Failed to create Zip file"
         exit 1
+    fi
 else
     echo "No files found older than $FILES"
 fi
