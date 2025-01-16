@@ -17,13 +17,13 @@ DAYS=${3:-14} # if user numberof days not provided it will take default as 14 da
 
 
 USAGE(){
-    echo -e " $R USAGE:: $N backup.sh <SOURSE_DIR> <DEST_DIR> <DAYS(optional)>"
+    echo -e " $R USAGE:: $N backup.sh <SOURSE_DIR> <DEST_DIR> <DAYS(optional)> "
     exit 1
 }
 
 if [ $# -lt 2 ]
 then    
-    echo "$USAGE"
+    USAGE
 fi
 
 mkdir -p /home/ec2-user/shell_script-logs
