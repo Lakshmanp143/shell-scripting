@@ -43,7 +43,7 @@ echo "Script started executing at:: $TIMESTAMP" &>>$LOGS_FILE_NAME
 
 
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
-echo "files to deleting:: $FILES"
+
 
 if [ -n "$FILES" ] # true there are files to zip
 then
