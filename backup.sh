@@ -40,3 +40,6 @@ fi
 mkdir -p /home/ec2-user/shell_script-logs
 
 echo "Script started executing at:: $TIMESTAMP" &>>$LOGS_FILE_NAME
+
+
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
