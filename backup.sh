@@ -23,7 +23,7 @@ USAGE(){
 
 if [ $# -lt 2 ]
 then    
-    echo "USAGE"
+    echo "$USAGE"
 fi
 
 mkdir -p /home/ec2-user/shell_script-logs
