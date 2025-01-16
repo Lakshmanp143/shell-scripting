@@ -44,3 +44,10 @@ echo "Script started executing at:: $TIMESTAMP" &>>$LOGS_FILE_NAME
 
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
 echo "files to deleting:: $FILES"
+
+if [ -n $FILES ]
+then
+    echo "files are:: $FILES"
+else
+    echo "No files found older than $FILES"
+fi
