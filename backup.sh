@@ -9,7 +9,7 @@ B="\e[34m"
 
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S )
 LOGS_FOLDER="/home/ec2-user/shell_script-logs"
-LOGS_FILE=$(echo $0 | cut -d "." -f1 )
+LOGS_FILE=$(echo $0 | awk -F "/" '{print $NF}' | cut -d "." -f1 )
 LOGS_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log"
 SOURCE_DIR=$1
 DEST_DIR=$2
@@ -37,7 +37,7 @@ then
     echo -e "$DEST_DIR Does not exist...Please check"
     exit 1
 fi 
-mkdir -p /home/ec2-user/shell_script-logs
+mkdir -p $LOGS_FOLDER
 
 echo "Script started executing at:: $TIMESTAMP" &>>$LOGS_FILE_NAME
 
